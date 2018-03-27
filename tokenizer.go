@@ -7,9 +7,11 @@ import (
 func text2Tokens(text string) []string {
 	t := tokenizer.New()
 
-	tokens := []string{}
-	for _, token := range t.Tokenize(text) {
-		tokens = append(tokens, token.String())
+	tokens := t.Tokenize(text)
+	result := make([]string, len(tokens))
+
+	for _, token := range tokens {
+		result = append(result, token.String())
 	}
-	return tokens
+	return result
 }
