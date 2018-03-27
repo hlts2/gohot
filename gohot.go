@@ -3,6 +3,7 @@ package gohot
 // CreateOneHotVectorFromTokens returns one hot vector of tokens
 func CreateOneHotVectorFromTokens(tokens []string) map[string]string {
 	uniqTokens := getRemovedDuplicateTokens(tokens)
+
 	return createOneHotVectorFromTokens(uniqTokens)
 }
 
@@ -19,6 +20,7 @@ func CreateOneHotVectorFromText(text string) map[string]string {
 func CreateOneHotVectorFromTexts(texts []string) map[string]string {
 	tokens := []string{}
 
+	//TODO Reduce the number of allocations
 	for _, text := range texts {
 		tokens = append(tokens, text2Tokens(text)...)
 	}
