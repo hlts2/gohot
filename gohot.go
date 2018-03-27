@@ -5,7 +5,6 @@ import "github.com/ikawaha/kagome/tokenizer"
 // CreateOneHotVectorFromTokens returns one hot vector of tokens
 func CreateOneHotVectorFromTokens(tokens []string) map[string]string {
 	uniqTokens := getRemovedDuplicateTokens(tokens)
-
 	return createOneHotVectorFromTokens(uniqTokens)
 }
 
