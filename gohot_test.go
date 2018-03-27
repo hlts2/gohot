@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestGetOneHotVectorOfTokens(t *testing.T) {
+func TestCreateOneHotVectorOfTokens(t *testing.T) {
 	tests := []struct {
 		tokens   []string
 		expected map[string]string
@@ -33,7 +33,7 @@ func TestGetOneHotVectorOfTokens(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		oneHotVectors := GetOneHotVectorOfTokens(test.tokens)
+		oneHotVectors := CreateOneHotVectorFromTokens(test.tokens)
 
 		if !reflect.DeepEqual(oneHotVectors, test.expected) {
 			t.Errorf("expected: %v, got: %v", oneHotVectors, test.expected)

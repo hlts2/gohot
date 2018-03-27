@@ -1,13 +1,32 @@
 package gohot
 
-// GetOneHotVectorOfTokens returns one hot vector of tokens
-func GetOneHotVectorOfTokens(tokens []string) map[string]string {
-	return getOneHotVectorOfTokens(tokens)
+import (
+	"github.com/ikawaha/kagome/tokenizer"
+)
+
+// CreateOneHotVectorFromTokens returns one hot vector of tokens
+func CreateOneHotVectorFromTokens(tokens []string) map[string]string {
+	uniqTokens := getRemovedDuplicateTokens(tokens)
+	return createOneHotVectorFromTokens(uniqTokens)
 }
 
-func getOneHotVectorOfTokens(tokens []string) map[string]string {
-	uniqTokens := getRemovedDuplicateTokens(tokens)
+// CreateOneHotVectorFromText returns one hot vector of text
+func CreateOneHotVectorFromText(text string) map[string]string {
+	t := tokenizer.New()
 
+	tokens := []string{}
+	for _, token := range t.Tokenize(text) {
+		if token.Class == tokenizer.DUMMY {
+			continue
+		}
+		tokens = append(tokens, token.String())
+	}
+
+	uniqTokens := getRemovedDuplicateTokens(tokens)
+	return createOneHotVectorFromTokens(uniqTokens)
+}
+
+func createOneHotVectorFromTokens(uniqTokens []string) map[string]string {
 	oneHotVectors := make(map[string]string, len(uniqTokens))
 
 	for i, uniqToken := range uniqTokens {
