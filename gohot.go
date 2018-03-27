@@ -16,20 +16,6 @@ func CreateOneHotVectorFromText(text string) map[string]string {
 	return createOneHotVectorFromTokens(uniqTokens)
 }
 
-// CreateOneHotVectorFromTexts returns one hot vector of texts
-func CreateOneHotVectorFromTexts(texts []string) map[string]string {
-	tokens := []string{}
-
-	//TODO Reduce the number of allocations
-	for _, text := range texts {
-		tokens = append(tokens, text2Tokens(text)...)
-	}
-
-	uniqTokens := getRemovedDuplicateTokens(tokens)
-
-	return CreateOneHotVectorFromTokens(uniqTokens)
-}
-
 func createOneHotVectorFromTokens(uniqTokens []string) map[string]string {
 	oneHotVector := make(map[string]string, len(uniqTokens))
 
