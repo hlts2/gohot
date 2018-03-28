@@ -1,6 +1,8 @@
 package gohot
 
-import "github.com/ikawaha/kagome/tokenizer"
+import (
+	"github.com/ikawaha/kagome/tokenizer"
+)
 
 // CreateOneHotVectorFromTokens returns one hot vector of tokens
 func CreateOneHotVectorFromTokens(tokens []string) map[string]string {
@@ -16,7 +18,10 @@ func CreateOneHotVectorFromText(text string) map[string]string {
 	tokens := make([]string, len(tokenObjects))
 
 	for _, tokenObject := range tokenObjects {
-		tokens = append(tokens, tokenObject.String())
+		if tokenObject.Class == tokenizer.DUMMY {
+			continue
+		}
+		tokens = append(tokens, tokenObject.Surface)
 	}
 
 	uniqTokens := getRemovedDuplicateTokens(tokens)
