@@ -1,6 +1,6 @@
 package gohot
 
-func getRemovedDuplicateTokens(tokens []string) []string {
+func getUniqTokens(tokens []string) []string {
 	if len(tokens) == 0 {
 		return []string{}
 	}

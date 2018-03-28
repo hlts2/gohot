@@ -6,7 +6,7 @@ import (
 
 // CreateOneHotVectorFromTokens returns one hot vector of tokens
 func CreateOneHotVectorFromTokens(tokens []string) map[string]string {
-	uniqTokens := getRemovedDuplicateTokens(tokens)
+	uniqTokens := getUniqTokens(tokens)
 	return createOneHotVectorFromTokens(uniqTokens)
 }
 
@@ -24,7 +24,7 @@ func CreateOneHotVectorFromText(text string) map[string]string {
 		tokens = append(tokens, tokenObject.Surface)
 	}
 
-	uniqTokens := getRemovedDuplicateTokens(tokens)
+	uniqTokens := getUniqTokens(tokens)
 
 	return createOneHotVectorFromTokens(uniqTokens)
 }
