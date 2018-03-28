@@ -25,7 +25,7 @@ func getRemovedDuplicateTokens(tokens []string) []string {
 	return uniqTokens[:index]
 }
 
-func mergeMap(m1 map[string]string, m2 map[string]string) map[string]string {
+func mergeMap(m1, m2 map[string]string) map[string]string {
 	result := make(map[string]string, len(m1)+len(m2))
 
 	for key, val := range m1 {
