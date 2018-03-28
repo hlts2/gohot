@@ -5,7 +5,7 @@ func getRemovedDuplicateTokens(tokens []string) []string {
 		return []string{}
 	}
 
-	uniqTokens := make([]string, len(tokens)+1)
+	uniqTokens := make([]string, len(tokens))
 	index := 0
 
 	for _, token := range tokens {
