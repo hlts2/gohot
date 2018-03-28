@@ -25,7 +25,6 @@ func CreateOneHotVectorFromText(text string) map[string]string {
 	}
 
 	uniqTokens := getUniqTokens(tokens)
-
 	return createOneHotVectorFromTokens(uniqTokens)
 }
 
