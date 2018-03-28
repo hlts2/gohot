@@ -64,3 +64,35 @@ func TestGetElementCountOfMaps(t *testing.T) {
 		}
 	}
 }
+
+func TestMergeMap(t *testing.T) {
+	tests := []struct {
+		m1       map[string]string
+		m2       map[string]string
+		expected map[string]string
+	}{
+		{
+			m1:       map[string]string{"name": "hlts2"},
+			m2:       map[string]string{"age": "23"},
+			expected: map[string]string{"name": "hlts2", "age": "23"},
+		},
+		{
+			m1:       map[string]string{"name": "hlts2"},
+			m2:       map[string]string{"name": "hiroto"},
+			expected: map[string]string{"name": "hlts2"},
+		},
+		{
+			m1:       map[string]string{},
+			m2:       map[string]string{},
+			expected: map[string]string{},
+		},
+	}
+
+	for _, test := range tests {
+		got := mergeMap(test.m1, test.m2)
+
+		if !reflect.DeepEqual(test.expected, got) {
+			t.Errorf("expected: %v, got: %v", test.expected, got)
+		}
+	}
+}
