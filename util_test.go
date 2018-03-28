@@ -32,3 +32,35 @@ func TestGetRemovedDuplicateTaokens(t *testing.T) {
 		}
 	}
 }
+
+func TestGetElementCountOfMaps(t *testing.T) {
+	tests := []struct {
+		m1       map[string]string
+		m2       map[string]string
+		expected int
+	}{
+		{
+			m1:       map[string]string{"name": "hlts2", "age": "22"},
+			m2:       map[string]string{"loc": "Osaka"},
+			expected: 3,
+		},
+		{
+			m1:       map[string]string{"name": "hlts2", "age": "22"},
+			m2:       map[string]string{"name": "hiroto"},
+			expected: 2,
+		},
+		{
+			m1:       map[string]string{},
+			m2:       map[string]string{},
+			expected: 0,
+		},
+	}
+
+	for _, test := range tests {
+		got := getElementCountOfMaps(test.m1, test.m2)
+
+		if test.expected != got {
+			t.Errorf("expected: %v, got: %v", test.expected, got)
+		}
+	}
+}
