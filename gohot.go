@@ -24,6 +24,16 @@ func CreateOneHotVectorFromText(text string) map[string]string {
 	return createOneHotVectorFromTokens(uniqTokens)
 }
 
+// CreateOneHotVectorFromTexts returns one hot vector of texts
+func CreateOneHotVectorFromTexts(texts []string) map[string]string {
+	tokens := map[string]string{}
+	for _, text := range texts {
+		tokens = mergeMap(tokens, CreateOneHotVectorFromText(text))
+	}
+
+	return tokens
+}
+
 func createOneHotVectorFromTokens(uniqTokens []string) map[string]string {
 	oneHotVector := make(map[string]string, len(uniqTokens))
 
