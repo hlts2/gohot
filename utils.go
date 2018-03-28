@@ -25,7 +25,7 @@ func getUniqTokens(tokens []string) []string {
 	return uniqTokens[:index]
 }
 
-func getElementCountOfMaps(m1, m2 map[string]string) int {
+func getElementCount(m1, m2 map[string]string) int {
 	duplicateCount := 0
 	for m1Key := range m1 {
 		for m2Key := range m2 {
@@ -37,8 +37,8 @@ func getElementCountOfMaps(m1, m2 map[string]string) int {
 	return (len(m1) + len(m2)) - duplicateCount
 }
 
-func mergeMap(m1, m2 map[string]string) map[string]string {
-	result := make(map[string]string, getElementCountOfMaps(m1, m2))
+func merge(m1, m2 map[string]string) map[string]string {
+	result := make(map[string]string, getElementCount(m1, m2))
 
 	for key, val := range m1 {
 		result[key] = val
