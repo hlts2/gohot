@@ -78,8 +78,8 @@ func TestMergeMap(t *testing.T) {
 		},
 		{
 			m1:       map[string]string{"name": "hlts2"},
-			m2:       map[string]string{"name": "hiroto"},
-			expected: map[string]string{"name": "hlts2"},
+			m2:       map[string]string{"name": "hiroto", "age": "23"},
+			expected: map[string]string{"name": "hlts2", "age": "23"},
 		},
 		{
 			m1:       map[string]string{},
