@@ -12,11 +12,11 @@ func CreateOneHotVectorFromTokens(tokens []string) map[string]string {
 func CreateOneHotVectorFromText(text string) map[string]string {
 	t := tokenizer.New()
 
-	tokensObj := t.Tokenize(text)
-	tokens := make([]string, len(tokensObj))
+	tokenObjects := t.Tokenize(text)
+	tokens := make([]string, len(tokenObjects))
 
-	for _, tokenObj := range tokensObj {
-		tokens = append(tokens, tokenObj.String())
+	for _, tokenObject := range tokenObjects {
+		tokens = append(tokens, tokenObject.String())
 	}
 
 	uniqTokens := getRemovedDuplicateTokens(tokens)
