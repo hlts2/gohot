@@ -14,14 +14,14 @@ func CreateOneHotVectorFromTokens(tokens []string) map[string]string {
 func CreateOneHotVectorFromText(text string) map[string]string {
 	t := tokenizer.New()
 
-	tokenObjects := t.Tokenize(text)
-	tokens := make([]string, len(tokenObjects))
+	tokensObjects := t.Tokenize(text)
+	tokens := make([]string, len(tokensObjects))
 
-	for _, tokenObject := range tokenObjects {
-		if tokenObject.Class == tokenizer.DUMMY {
+	for _, tokensObject := range tokensObjects {
+		if tokensObject.Class == tokenizer.DUMMY {
 			continue
 		}
-		tokens = append(tokens, tokenObject.Surface)
+		tokens = append(tokens, tokensObject.Surface)
 	}
 
 	uniqTokens := getUniqTokens(tokens)
