@@ -32,16 +32,16 @@ func createOneHotVectorFromTokens(uniqTokens []string) map[string]string {
 	oneHotVector := make(map[string]string, len(uniqTokens))
 
 	for i, uniqToken := range uniqTokens {
-		vector := ""
+		vector := make([]byte, 0, len(uniqTokens))
 
 		for j := 0; j < len(uniqTokens); j++ {
 			if j == i {
-				vector += "1"
+				vector = append(vector, "1"...)
 				continue
 			}
-			vector += "0"
+			vector = append(vector, "0"...)
 		}
-		oneHotVector[uniqToken] = vector
+		oneHotVector[uniqToken] = string(vector)
 	}
 	return oneHotVector
 }
