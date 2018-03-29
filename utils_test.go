@@ -25,9 +25,9 @@ func TestGetRemovedDuplicateTaokens(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		got := getRemovedDuplicateTokens(test.tokens)
+		got := getUniqTokens(test.tokens)
 
-		if !reflect.DeepEqual(got, getRemovedDuplicateTokens(test.tokens)) {
+		if !reflect.DeepEqual(got, getUniqTokens(test.tokens)) {
 			t.Errorf("expected: %v, got: %v", test.expected, got)
 		}
 	}
@@ -57,7 +57,7 @@ func TestGetElementCountOfMaps(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		got := getElementCountOfMaps(test.m1, test.m2)
+		got := getElementCount(test.m1, test.m2)
 
 		if test.expected != got {
 			t.Errorf("expected: %v, got: %v", test.expected, got)
@@ -89,7 +89,7 @@ func TestMergeMap(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		got := mergeMap(test.m1, test.m2)
+		got := merge(test.m1, test.m2)
 
 		if !reflect.DeepEqual(test.expected, got) {
 			t.Errorf("expected: %v, got: %v", test.expected, got)

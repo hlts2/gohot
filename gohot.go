@@ -37,9 +37,9 @@ func createOneHotVectorFromTokens(uniqTokens []string) map[string]string {
 		for j := 0; j < len(uniqTokens); j++ {
 			if j == i {
 				vector += "1"
-				break
+			} else {
+				vector += "0"
 			}
-			vector += "0"
 		}
 		oneHotVector[uniqToken] = vector
 	}
