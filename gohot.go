@@ -15,7 +15,7 @@ func CreateOneHotVectorFromText(text string) map[string]string {
 	t := tokenizer.New()
 
 	tokensObjects := t.Tokenize(text)
-	tokens := make([]string, len(tokensObjects))
+	tokens := make([]string, 0, len(tokensObjects))
 
 	for _, tokensObject := range tokensObjects {
 		if tokensObject.Class == tokenizer.DUMMY {

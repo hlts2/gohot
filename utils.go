@@ -5,8 +5,7 @@ func getUniqTokens(tokens []string) []string {
 		return []string{}
 	}
 
-	uniqTokens := make([]string, len(tokens))
-	index := 0
+	uniqTokens := make([]string, 0, len(tokens))
 
 	for _, token := range tokens {
 		duplicate := false
@@ -18,11 +17,10 @@ func getUniqTokens(tokens []string) []string {
 		}
 
 		if !duplicate {
-			uniqTokens[index] = token
-			index++
+			uniqTokens = append(uniqTokens, token)
 		}
 	}
-	return uniqTokens[:index]
+	return uniqTokens
 }
 
 func getElementCount(m1, m2 map[string]string) int {
