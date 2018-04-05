@@ -19,4 +19,10 @@ for token, vector := range onehotvectors {
     fmt.Println(token, vector)
 }
 
+text := "私はブドウが好きなので、毎年秋が楽しみだ"
+onehotvectors = gohot.CreateOneHotVectorFromText(text) //["私":"100000000000", "は": "010000000000", "ブドウ": "001000000000" ... etc]
+
+for token, vector := range onehotvectors {
+	fmt.Println(token, vector)
+}
 ```
