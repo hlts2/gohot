@@ -7,15 +7,15 @@ import (
 )
 
 func main() {
-	vectors := gohot.CreateOneHotVectorFromTokens([]string{"私", "は", "ブドウ", "が", "好き", "な", "ので", "、", "毎年", "秋", "が", "楽しみ", "だ"})
+	onehotvectors := gohot.CreateOneHotVectorFromTokens([]string{"私", "は", "ブドウ", "が", "好き", "な", "ので", "、", "毎年", "秋", "が", "楽しみ", "だ"})
 
-	for key, val := range vectors {
-		fmt.Println(key, val)
+	for token, vector := range onehotvectors {
+		fmt.Println(token, vector)
 	}
 
-	vectors = gohot.CreateOneHotVectorFromText("私はブドウが好きなので、毎年秋が楽しみだ")
+	onehotvectors = gohot.CreateOneHotVectorFromText("私はブドウが好きなので、毎年秋が楽しみだ")
 
-	for key, val := range vectors {
-		fmt.Println(key, val)
+	for token, vector := range onehotvectors {
+		fmt.Println(token, vector)
 	}
 }
