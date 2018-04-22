@@ -1,7 +1,7 @@
 # gohot
 gohot is a golang library that generates one hot encode vector.
 
-gohot uses morphological analysis ([`kagome`][kagome]) to convert text to tokens.
+gohot uses morphological analysis ([`kagome`][kagome]) to convert japanese text to tokens.
 
 [kagome]: https://github.com/ikawaha/kagome
 
