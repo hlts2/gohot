@@ -1,0 +1,24 @@
+language: go
+
+go:
+  - 1.8.3
+  - 1.9
+  - tip
+
+sudo: false
+cache: bundler
+
+before_install:
+  - pip install --user codecov
+  - go get github.com/axw/gocov/gocov
+  - go get github.com/mattn/goveralls
+  - go get golang.org/x/tools/cmd/cover
+
+install:
+
+script:
+  - go test ./...
+  - cd tokenizer; go test -benchmem -bench .; cd ..
+  - cd internal/dic; go test -benchmem -bench .; cd ../..
+  - /bin/sh ./go-coverall.sh
+
